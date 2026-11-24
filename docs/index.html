@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>تيم ماركتنج كامل جوه Claude بـ Topview MCP | Grow With Khalaf</title>
+<meta name="description" content="دليل بالعربي: تركّب Topview MCP في Claude في دقيقتين، وبرسالة واحدة تطلّع خطة الكامبين وصور وفيديوهات الإعلانات.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="تيم ماركتنج كامل جوه Claude بـ Topview MCP">
+<meta property="og:description" content="التركيب خطوة بخطوة، وأول رسالة تطلب بيها كامبين كامل.">
+<meta property="og:image" content="https://mohamedkhalafalla.github.io/gwk-topview-guide/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#00273C">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #00273C;
+  --navy-2: #0A3550;
+  --cyan: #16ECED;
+  --ice: #D2FFFF;
+  --orange: #FF660F;
+  --peach: #FAD9C6;
+  --white: #FFFFFF;
+  --ink: #00273C;
+  --muted: #48606E;
+  --line: #DCE6EA;
+  --soft: #F4FAFB;
+  --radius: 16px;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 84px; overflow-x: clip; }
+body {
+  margin: 0;
+  font-family: 'Cairo', system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--white);
+  font-size: 18px;
+  line-height: 1.85;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+a { color: inherit; }
+bdi, .en { unicode-bidi: isolate; }
+code { font-family: var(--mono); font-size: .85em; background: var(--ice); color: var(--navy); padding: 1px 7px; border-radius: 6px; direction: ltr; unicode-bidi: isolate; white-space: nowrap; }
+
+/* ---------- top bar ---------- */
+.topbar { position: sticky; top: 0; z-index: 20; background: rgba(0, 39, 60, .96); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(22, 236, 237, .14); }
+.topbar .in { max-width: 1180px; margin: 0 auto; padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.brand { display: flex; align-items: center; gap: 10px; color: var(--white); text-decoration: none; font-weight: 900; direction: ltr; letter-spacing: .2px; }
+.brand .dot { width: 30px; height: 30px; border-radius: 9px; background: var(--cyan); color: var(--navy); display: grid; place-items: center; font-size: 15px; font-weight: 900; }
+.brand b { color: var(--cyan); }
+.btn { display: inline-flex; align-items: center; gap: 10px; border-radius: 999px; padding: 12px 26px; font-weight: 800; font-size: 17px; text-decoration: none; border: 0; cursor: pointer; font-family: inherit; transition: transform .15s ease, box-shadow .15s ease; white-space: nowrap; }
+.btn:hover { transform: translateY(-1px); }
+.btn-cyan { background: var(--cyan); color: var(--navy); box-shadow: 0 0 34px rgba(22, 236, 237, .35); }
+.btn-ghost { background: transparent; color: var(--white); border: 1.5px solid rgba(255, 255, 255, .35); }
+.btn-navy { background: var(--navy); color: var(--white); }
+.btn svg { width: 20px; height: 20px; flex: none; }
+.topbar .btn { padding: 9px 20px; font-size: 15px; }
+
+/* ---------- hero ---------- */
+.hero {
+  background:
+    radial-gradient(rgba(255, 255, 255, .07) 2px, transparent 2px) 0 0 / 44px 44px,
+    radial-gradient(circle at 8% 4%, rgba(22, 236, 237, .24) 0%, transparent 42%),
+    var(--navy);
+  color: var(--white);
+  overflow: hidden;
+}
+.hero .in { max-width: 1180px; margin: 0 auto; padding: 44px 20px 0; display: grid; grid-template-columns: 1.25fr .75fr; gap: 24px; align-items: end; }
+.crumbs { font-size: 15px; color: rgba(255, 255, 255, .6); margin-bottom: 18px; }
+.crumbs span { margin: 0 6px; }
+.eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 800; color: var(--cyan); letter-spacing: .5px; border: 1px solid rgba(22, 236, 237, .4); border-radius: 999px; padding: 4px 14px; }
+.hero h1 { font-size: clamp(36px, 5.4vw, 62px); line-height: 1.3; font-weight: 900; margin: 18px 0 14px; }
+.hero h1 .hl { color: var(--orange); }
+.hero .lead { font-size: clamp(18px, 2vw, 22px); color: rgba(255, 255, 255, .82); margin: 0 0 26px; max-width: 640px; }
+.hero .ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 26px; }
+.byline { display: flex; align-items: center; gap: 12px; padding-bottom: 44px; font-size: 15px; color: rgba(255, 255, 255, .7); }
+.byline .av { width: 44px; height: 44px; border-radius: 50%; background: var(--cyan); color: var(--navy); display: grid; place-items: center; font-weight: 900; font-size: 18px; }
+.byline strong { display: block; color: var(--white); font-size: 16px; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 4px; }
+.facts span::before { content: "✓"; color: var(--cyan); font-weight: 900; margin-left: 6px; }
+.hero-art { position: relative; align-self: end; display: flex; justify-content: center; min-height: 420px; }
+.hero-art img.me { width: min(420px, 100%); display: block; filter: drop-shadow(0 0 32px rgba(22, 236, 237, .35)); position: relative; z-index: 1; }
+.logos { position: absolute; top: 18px; inset-inline: 0; display: flex; justify-content: center; align-items: center; gap: 0; direction: ltr; z-index: 2; }
+.tile { width: 76px; height: 76px; border-radius: 20px; background: var(--white); display: grid; place-items: center; box-shadow: 0 10px 30px rgba(0, 0, 0, .25); }
+.tile img { width: 62%; height: 62%; }
+.link-line { width: 74px; height: 6px; background: repeating-linear-gradient(90deg, var(--cyan) 0 12px, transparent 12px 22px); border-radius: 4px; }
+
+/* ---------- layout ---------- */
+.wrap { max-width: 1180px; margin: 0 auto; padding: 48px 20px 30px; display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 56px; }
+article { min-width: 0; max-width: 780px; }
+aside.toc { position: sticky; top: 90px; align-self: start; font-size: 15px; line-height: 1.6; }
+.toc h4 { font-size: 13px; letter-spacing: .6px; color: var(--muted); margin: 0 0 10px; font-weight: 800; }
+.toc ol { list-style: none; margin: 0; padding: 0; border-right: 2px solid var(--line); }
+.toc li a { display: block; padding: 6px 14px; text-decoration: none; color: var(--muted); border-right: 2px solid transparent; margin-right: -2px; }
+.toc li a:hover { color: var(--navy); }
+.toc li a.on { color: var(--navy); font-weight: 800; border-right-color: var(--orange); }
+.toc-mobile { display: none; }
+
+article h2 { font-size: clamp(26px, 3.2vw, 34px); line-height: 1.4; font-weight: 900; margin: 64px 0 14px; }
+article h2:first-of-type { margin-top: 8px; }
+article h2 .n { display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; background: var(--navy); color: var(--cyan); font-size: 20px; margin-left: 10px; vertical-align: 4px; }
+article h3 { font-size: 21px; font-weight: 800; margin: 34px 0 8px; }
+article p { margin: 0 0 16px; }
+article ul { padding-right: 22px; margin: 0 0 16px; }
+article li { margin-bottom: 6px; }
+.big { font-size: 20px; }
+.hl { color: var(--orange); }
+
+/* ---------- callouts ---------- */
+.callout { border-radius: var(--radius); padding: 20px 24px; margin: 24px 0; }
+.callout .label { font-size: 13px; font-weight: 900; letter-spacing: .6px; margin-bottom: 4px; display: block; }
+.callout p:last-child { margin-bottom: 0; }
+.callout.warn { background: var(--peach); }
+.callout.warn .label { color: #B8430A; }
+.callout.tip { background: var(--ice); }
+.callout.tip .label { color: var(--navy); }
+.callout.dark { background: var(--navy); color: var(--white); }
+.callout.dark .label { color: var(--cyan); }
+
+/* ---------- tables ---------- */
+.tbl { overflow-x: auto; margin: 18px 0 26px; border: 1px solid var(--line); border-radius: var(--radius); }
+table { width: 100%; border-collapse: collapse; font-size: 16px; line-height: 1.7; }
+th { background: var(--navy); color: var(--white); text-align: right; font-weight: 800; font-size: 13px; letter-spacing: .5px; padding: 12px 16px; white-space: nowrap; }
+td { padding: 14px 16px; border-top: 1px solid var(--line); vertical-align: top; }
+tr:nth-child(even) td { background: var(--soft); }
+.agent { display: inline-block; direction: ltr; unicode-bidi: isolate; font-weight: 800; background: var(--ice); color: var(--navy); padding: 2px 10px; border-radius: 8px; white-space: nowrap; font-size: 15px; }
+.gloss { display: block; font-size: 13px; color: var(--muted); margin-top: 4px; }
+.pts { font-weight: 900; color: var(--orange); font-size: 20px; text-align: center; }
+.num { font-weight: 900; color: var(--orange); }
+.group-title { display: flex; align-items: center; gap: 10px; font-size: 19px; font-weight: 800; margin: 28px 0 0; }
+.group-title::before { content: ""; width: 10px; height: 10px; border-radius: 3px; background: var(--cyan); box-shadow: 0 0 0 4px var(--ice); }
+
+/* ---------- prompt + code ---------- */
+.prompt { border: 1.5px solid var(--navy); border-radius: var(--radius); margin: 18px 0 26px; overflow: hidden; }
+.prompt-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; background: var(--navy); color: var(--white); padding: 10px 14px 10px 10px; }
+.prompt-head .t { font-weight: 800; font-size: 15px; }
+.prompt-head .t small { color: var(--cyan); font-size: 12px; letter-spacing: .6px; margin-left: 8px; }
+.copy { font-family: inherit; font-weight: 800; font-size: 14px; background: var(--cyan); color: var(--navy); border: 0; border-radius: 999px; padding: 6px 16px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+.copy.done { background: var(--white); }
+.prompt pre { margin: 0; padding: 18px 20px; white-space: pre-wrap; word-break: break-word; font-family: 'Cairo', sans-serif; font-size: 16px; line-height: 1.9; background: var(--soft); unicode-bidi: plaintext; }
+.prompt pre .ph { background: var(--peach); border-radius: 5px; padding: 0 4px; font-weight: 700; }
+.code { background: #001B2A; border-radius: var(--radius); margin: 14px 0 22px; overflow: hidden; }
+.code .prompt-head { background: #00121C; }
+.code pre { margin: 0; padding: 16px 20px; color: var(--ice); font-family: var(--mono); font-size: 15px; line-height: 1.8; direction: ltr; text-align: left; overflow-x: auto; white-space: pre; }
+.code pre .c { color: #6E8C99; }
+
+/* ---------- install tabs ---------- */
+.tabs { display: flex; gap: 6px; background: var(--soft); border: 1px solid var(--line); padding: 6px; border-radius: 999px; width: fit-content; max-width: 100%; margin: 18px 0 8px; }
+.tabs button { font-family: inherit; font-size: 16px; font-weight: 800; border: 0; background: transparent; color: var(--muted); padding: 8px 20px; border-radius: 999px; cursor: pointer; white-space: nowrap; }
+.tabs button[aria-selected="true"] { background: var(--navy); color: var(--white); }
+.panel[hidden] { display: none; }
+.steps { counter-reset: s; list-style: none; padding: 0 !important; margin: 18px 0 !important; }
+.steps > li { counter-increment: s; position: relative; padding: 2px 52px 14px 0; margin: 0 !important; }
+.steps > li::before { content: counter(s); position: absolute; right: 0; top: 0; width: 36px; height: 36px; border-radius: 50%; background: var(--ice); color: var(--navy); font-weight: 900; display: grid; place-items: center; font-size: 17px; }
+.steps > li:not(:last-child)::after { content: ""; position: absolute; right: 17px; top: 40px; bottom: 4px; width: 2px; background: var(--line); }
+.download { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; background: var(--navy); color: var(--white); border-radius: var(--radius); padding: 20px 24px; margin: 20px 0; }
+.download .meta { font-size: 15px; color: rgba(255, 255, 255, .72); line-height: 1.6; }
+.download .meta strong { color: var(--white); font-size: 17px; display: block; direction: ltr; text-align: right; }
+
+/* ---------- agents cards ---------- */
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin: 18px 0; }
+.card { border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; background: var(--white); }
+.card .agent { margin-bottom: 6px; }
+a.card { display: block; text-decoration: none; color: inherit; transition: border-color .15s ease; }
+a.card:hover { border-color: var(--navy); }
+.card p { margin: 0; font-size: 15.5px; line-height: 1.75; color: #1D3B4B; }
+
+/* ---------- footer ---------- */
+.end {
+  background:
+    radial-gradient(rgba(255, 255, 255, .07) 2px, transparent 2px) 0 0 / 44px 44px,
+    radial-gradient(circle at 92% 0%, rgba(22, 236, 237, .22) 0%, transparent 40%),
+    var(--navy);
+  color: var(--white); margin-top: 40px;
+}
+.end .in { max-width: 1180px; margin: 0 auto; padding: 56px 20px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; }
+.end h3 { font-size: clamp(26px, 3vw, 34px); font-weight: 900; margin: 0 0 6px; line-height: 1.4; }
+.end p { margin: 0; color: rgba(255, 255, 255, .75); }
+.end .row { display: flex; flex-wrap: wrap; gap: 12px; }
+.foot { text-align: center; font-size: 14px; color: rgba(255, 255, 255, .55); padding: 18px 20px 26px; border-top: 1px solid rgba(255, 255, 255, .08); direction: ltr; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 960px) {
+  .wrap { grid-template-columns: 1fr; gap: 0; padding-top: 28px; }
+  aside.toc { display: none; }
+  .toc-mobile { display: block; border: 1px solid var(--line); border-radius: var(--radius); padding: 4px 18px; margin-bottom: 26px; background: var(--soft); }
+  .toc-mobile summary { cursor: pointer; font-weight: 800; padding: 10px 0; }
+  .toc-mobile ol { margin: 0 0 12px; padding-right: 22px; font-size: 16px; line-height: 1.9; }
+  .toc-mobile a { text-decoration: none; color: var(--navy); }
+  .hero .in { grid-template-columns: 1fr; padding-top: 28px; }
+  .hero-art { min-height: 0; order: -1; display: none; }
+  .byline { padding-bottom: 36px; }
+}
+/* On phones every table row becomes a card, so nothing scrolls sideways. */
+@media (max-width: 640px) {
+  .tbl { border: 0; border-radius: 0; overflow: visible; }
+  .tbl table, .tbl tbody, .tbl tr, .tbl td { display: block; width: 100%; }
+  .tbl thead { display: none; }
+  .tbl tr { border: 1px solid var(--line); border-radius: 14px; padding: 12px 16px; margin-bottom: 10px; background: var(--white) !important; }
+  .tbl tr td { background: none !important; border: 0; padding: 3px 0; }
+  .tbl td:first-child { font-weight: 700; }
+  .tbl td[data-l]:not(:first-child):not(:nth-child(2))::before { content: attr(data-l) ": "; color: var(--muted); font-size: 13px; font-weight: 800; }
+  .tbl td.pts { display: inline-block; width: auto; font-size: 17px; text-align: right; }
+  .tbl td.pts::after { content: " نقطة"; font-size: 13px; color: var(--muted); }
+  .tbl tr:has(td.pts) td:first-child { display: inline-block; width: auto; margin-left: 10px; }
+  .gloss { display: inline; margin: 0 8px 0 0; }
+}
+@media (max-width: 560px) {
+  body { font-size: 17px; }
+  .topbar .btn { display: none; }
+  .hero .ctas .btn { width: 100%; justify-content: center; }
+  .callout { padding: 16px 18px; }
+  td, th { padding: 11px 12px; }
+  table { font-size: 15px; }
+  .tabs { width: 100%; }
+  .tabs button { flex: 1; padding: 8px 10px; font-size: 15px; }
+  .steps > li { padding-right: 46px; }
+}
+
+
+
+/* ---------- this page ---------- */
+.hero-art { align-self: center; min-height: 0; padding-bottom: 44px; flex-direction: column; align-items: center; gap: 22px; }
+.hero-art .logos { position: static; }
+.hero-art .tile { width: 96px; height: 96px; border-radius: 24px; overflow: hidden; }
+.hero-art .tile.tv img { width: 100%; height: 100%; }
+.ws { width: min(400px, 100%); background: var(--white); color: var(--navy); border-radius: 20px; overflow: hidden; box-shadow: 0 0 0 6px rgba(22, 236, 237, .18), 0 30px 60px rgba(0, 0, 0, .35); font-size: 15px; line-height: 1.5; }
+.ws .q { display: flex; align-items: center; gap: 8px; padding: 12px 16px; border-bottom: 1px solid var(--line); font-weight: 800; direction: ltr; }
+.ws .q img { width: 22px; height: 22px; border-radius: 6px; }
+.ws .r { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 10px 16px; border-bottom: 1px solid var(--line); }
+.ws .r:last-child { border-bottom: 0; }
+.ws .r b { font-weight: 800; }
+.ws .r small { direction: ltr; color: var(--muted); font-size: 12.5px; font-weight: 700; }
+.ws .ok { color: #0B7A55; font-weight: 900; }
+.ws .foot { padding: 8px 16px; font-size: 12px; color: var(--muted); background: var(--soft); direction: rtl; text-align: right; border: 0; }
+.url { display: flex; align-items: center; gap: 12px; background: #001B2A; border-radius: var(--radius); padding: 14px 16px 14px 20px; margin: 14px 0 22px; direction: ltr; }
+.url span { flex: 1; color: var(--ice); font-family: var(--mono); font-size: 17px; word-break: break-all; }
+.url .copy { flex: none; }
+.err { display: flex; align-items: center; gap: 10px; border: 2px solid #E5484D; border-radius: 12px; padding: 10px 14px; background: #FFF5F5; font-size: 15px; direction: ltr; margin: 10px 0 6px; }
+.err b { color: #C62828; }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="in">
+    <a class="brand" href="#top"><span class="dot">G</span><span>Grow With <b>Khalaf</b></span></a>
+    <a class="btn btn-cyan" href="#first">أول رسالة</a>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="in">
+    <div>
+      <div class="crumbs">موارد<span>/</span>Marketing<span>/</span>Topview MCP</div>
+      <span class="eyebrow">دليل التركيب + أول رسالة</span>
+      <h1>تيم ماركتنج كامل جوه <span class="hl">Claude</span></h1>
+      <p class="lead">Topview MCP بيضيف لـ&nbsp;Claude باحث سوق، واستراتيجي، ومصمم إعلانات في مكان واحد. بتركّبه مرة واحدة في دقيقتين، وبعدها رسالة واحدة تطلّعلك خطة الكامبين، وصور وفيديوهات الإعلانات، في نفس الشات.</p>
+      <div class="ctas">
+        <a class="btn btn-cyan" href="#copy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+          ابدأ من الخطوة 1
+        </a>
+        <a class="btn btn-ghost" href="https://www.topview.ai/mcp" target="_blank" rel="noopener">صفحة Topview MCP</a>
+      </div>
+      <div class="byline">
+        <div class="av">K</div>
+        <div>
+          <strong>الشرح من Grow With Khalaf · الأداة من Topview</strong>
+          <div class="facts"><span>بتتركب في دقيقتين</span><span>Claude وChatGPT وCursor</span><span>شغالة بالـ&nbsp;Credits</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="logos">
+        <div class="tile tv"><img src="assets/topview.png" alt=""></div>
+        <div class="link-line"></div>
+        <div class="tile"><img src="assets/claude.svg" alt=""></div>
+      </div>
+      <div class="ws">
+        <div class="q"><img src="assets/topview.png" alt="">Campaign Workspace</div>
+        <div class="r"><span><b>مين عميلك</b></span><small>Audience Insight</small><span class="ok">✓</span></div>
+        <div class="r"><span><b>إيه اللي يقنعه</b></span><small>Message Map</small><span class="ok">✓</span></div>
+        <div class="r"><span><b>خطة الكامبين</b></span><small>Campaign Plan</small><span class="ok">✓</span></div>
+        <div class="r"><span><b>بريف المحتوى</b></span><small>Content Brief</small><span class="ok">✓</span></div>
+        <div class="foot">أسماء المخرجات زي ما Topview بيكتبها</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <article>
+
+    <details class="toc-mobile">
+      <summary>في الصفحة دي</summary>
+      <ol data-toc></ol>
+    </details>
+
+    <p class="big">أغلب الشركات الـ&nbsp;B2B معندهاش تيم ماركتنج كامل: حد يدرس السوق، وحد يكتب الرسالة والخطة، وحد يصمم الإعلانات. Topview MCP بيدّي <b>Claude</b> الأدوات دي كلها، فبدل ما تنقل الكلام بين 4 أدوات، بتطلب كل ده من شات واحد.</p>
+
+    <div class="callout dark">
+      <span class="label">إزاي الموضوع شغال</span>
+      <p>الـ&nbsp;MCP طريقة بتخلّي Claude يستخدم أدوات برّه. Topview عاملين MCP server، وانت بتضيفه في Claude كـ&nbsp;<b>Custom Connector</b>. أول ما تطلب كامبين، Topview بيشغّل <bdi>Market Researcher</bdi> و<bdi>Strategist</bdi> و<bdi>Producer</bdi>، والشغل كله بيتحفظ في الـ&nbsp;<bdi>Campaign Workspace</bdi> بتاعك على Topview.</p>
+    </div>
+
+    <!-- ===== before ===== -->
+    <h2 id="before">قبل ما تبدأ</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>محتاج إيه</th><th>ليه</th></tr></thead>
+      <tbody>
+        <tr><td><b>حساب Claude</b> يسمح بـ&nbsp;Custom Connectors</td><td>هتضيف Topview كـ&nbsp;Connector. لو حسابك <b>Team</b> أو <b>Enterprise</b>، الـ&nbsp;Owner بتاع الحساب هو اللي يضيفه، وبعدها كل التيم يقدر يستخدمه.</td></tr>
+        <tr><td><b>حساب Topview</b></td><td>هتعمل بيه Login بعد ما تدوس Connect. الصور والفيديوهات بتتحسب من الـ&nbsp;Credits بتاعتك.</td></tr>
+        <tr><td><b>الـ&nbsp;Company Profile</b> بتاعك</td><td>PDF أو صفحة على موقعك، عشان Claude يفهم بتبيعوا إيه ولمين.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout warn">
+      <span class="label">قبل ما تشترك</span>
+      <p>Topview بيقولوا في الأسئلة الشائعة إن خطة <b>Unlimited</b> مش بتشتغل مع الـ&nbsp;MCP ولا الـ&nbsp;Plugin ولا الـ&nbsp;Skill. اختار خطة بـ&nbsp;Credits، وراجع الأسعار على <a href="https://www.topview.ai/pricing" target="_blank" rel="noopener">صفحة الأسعار</a>.</p>
+    </div>
+
+    <!-- ===== step 1 ===== -->
+    <h2 id="copy"><span class="n">1</span>انسخ لينك Claude</h2>
+    <p>افتح <a href="https://www.topview.ai/mcp" target="_blank" rel="noopener">topview.ai/mcp</a>، واختار تاب <b>Claude</b> تحت Quick Start، وانسخ اللينك. أو انسخه من هنا على طول:</p>
+    <div class="url"><span>https://mcp.topview.ai/claude</span><button class="copy" data-text="https://mcp.topview.ai/claude">انسخ</button></div>
+    <div class="callout tip">
+      <span class="label">خد بالك</span>
+      <p>نفس الصفحة فيها كمان <b>Plugin</b> لـ&nbsp;Claude Code (فيه زرار «Copy to Claude Code»). ده طريق تاني. في الدليل ده احنا شغالين بالـ&nbsp;<b>MCP</b>، يعني اللينك اللي فوق بس.</p>
+    </div>
+
+    <!-- ===== step 2 ===== -->
+    <h2 id="connector"><span class="n">2</span>ضيفه في Claude</h2>
+    <ol class="steps">
+      <li>في Claude افتح <b>Settings</b>، وبعدين <b>Connectors</b>. (في التطبيق الجديد ممكن تلاقيها تحت <b>Customize</b>، وبعدين تاب Connectors.)</li>
+      <li>دوس <b>Add</b>، واختار <b>Add custom connector</b>.</li>
+      <li>في خانة <b>Name</b> اكتب <code>Topview</code>.</li>
+      <li>في خانة الـ&nbsp;<b>URL</b> الصق اللينك: <code>https://mcp.topview.ai/claude</code></li>
+      <li>دوس <b>Add</b>.</li>
+    </ol>
+    <div class="callout warn">
+      <span class="label">لو طلعلك الخطأ ده</span>
+      <div class="err"><b>⚠</b> URL must start with https://</div>
+      <p>يبقى اللي اتلزق في الخانة مش اللينك. امسح الخانة كلها، وانسخ اللينك تاني من الخطوة 1، والصقه لوحده.</p>
+    </div>
+
+    <!-- ===== step 3 ===== -->
+    <h2 id="connect"><span class="n">3</span>Connect وسجّل دخول</h2>
+    <ol class="steps">
+      <li>جنب Topview في ليستة الـ&nbsp;Connectors دوس <b>Connect</b>.</li>
+      <li>هتفتحلك صفحة <b>Log in to Topview</b>. سجّل دخول بحسابك، ووافق إن Claude يوصل للحساب.</li>
+      <li>ارجع لـ&nbsp;Claude. لو Topview ظاهر في الـ&nbsp;Connectors على إنه متوصل، يبقى خلصت.</li>
+    </ol>
+
+    <!-- ===== step 4 ===== -->
+    <h2 id="first"><span class="n">4</span>أول رسالة: اعملي كامبين</h2>
+    <p>افتح شات جديد في Claude، وارفع الـ&nbsp;Company Profile، والصق الرسالة دي بعد ما تغيّر اللي بين الأقواس:</p>
+    <div class="prompt">
+      <div class="prompt-head"><span class="t"><small>PROMPT</small>الكامبين</span><button class="copy">انسخ</button></div>
+      <pre>استخدم Topview واعملي كامبين كامل.
+- الشركة: <span class="ph">[اسم شركتك]</span>، والـ Company Profile مرفق.
+- بنبيع: <span class="ph">[المنتج أو الخدمة]</span> لـ <span class="ph">[نوع الشركات ووظيفة اللي بيشتري، مثلًا: مدير المشتريات في المصانع]</span>.
+- الهدف: <span class="ph">[ميتينجات / طلبات عرض سعر / تجربة مجانية]</span>، والمنصة: <span class="ph">[LinkedIn / Facebook / Instagram]</span>.
+1. اعمل Audience Insight: مين العميل، وإيه مشاكله، وإيه اللي بيأخره عن الشراء.
+2. اعمل Message Map: إيه اللي يقنعه، ورد على أشهر 3 اعتراضات.
+3. اعمل Campaign Plan وContent Brief لمدة <span class="ph">[4 أسابيع]</span>.
+4. بعدها اعمل <span class="ph">[3]</span> نسخ مختلفة من إعلان صورة، و<span class="ph">[2]</span> فيديو قصير، عشان أجرّبهم.
+اسألني لو محتاج أي معلومة قبل ما تبدأ.</pre>
+    </div>
+    <div class="callout tip">
+      <span class="label">نصيحة</span>
+      <p>راجع الخطة الأول، وبعدين اطلب الصور والفيديوهات. كده مش هتصرف Credits على إعلانات مبنية على رسالة لسه هتغيّرها.</p>
+    </div>
+
+    <!-- ===== step 5 ===== -->
+    <h2 id="more"><span class="n">5</span>تطلب منه إيه كمان</h2>
+    <div class="cards">
+      <div class="card"><span class="agent">Market Insights</span><p>تقرير عن مشاكل الجمهور، والـ&nbsp;hooks اللي شغالة، والفجوات عند المنافسين.</p></div>
+      <div class="card"><span class="agent">Campaign Launch</span><p>Audience Insight وMessage Map وCampaign Plan وContent Brief من بريف واحد.</p></div>
+      <div class="card"><span class="agent">Video</span><p>فيديو من صورة أو من وصف، أو تعديل فيديو موجود.</p></div>
+      <div class="card"><span class="agent">Images</span><p>صور إعلانات، وتعديل صور، وصور منتج مع موديل، وشيل الخلفية.</p></div>
+    </div>
+    <div class="callout warn">
+      <span class="label">للشركات الـ&nbsp;B2B</span>
+      <p>الداتا اللي Topview بيسحبها جاية من TikTok وYouTube وAmazon وShopee، ودي أقوى لشركات بتبيع للمستهلك. لو انت B2B، اعتمد على Topview في الخطة والرسالة والإعلانات، وادّيله معلومات عملائك بنفسك في الرسالة.</p>
+    </div>
+
+    <div class="callout dark">
+      <span class="label">المصادر</span>
+      <p>خطوات التركيب واللينك من صفحة <a href="https://www.topview.ai/mcp" target="_blank" rel="noopener">Topview MCP</a> (تاب Claude)، وأسماء المخرجات والأسئلة الشائعة من نفس الصفحة. Topview منتج مدفوع من شركة Topview، واحنا مش تبعهم ولا تبع Anthropic.</p>
+    </div>
+
+  </article>
+
+  <aside class="toc">
+    <h4>في الصفحة دي</h4>
+    <ol data-toc></ol>
+  </aside>
+</div>
+
+<section class="end">
+  <div class="in">
+    <div>
+      <h3>الكامبين جاهز، فاضل مين هيشوفه</h3>
+      <p>ليستة الشركات اللي تستهدفها، ورسالة التواصل معاهم، كل حاجة في دليل لوحدها.</p>
+    </div>
+    <div class="row">
+      <a class="btn btn-cyan" href="https://mohamedkhalafalla.github.io/gwk-scrapegraph-guide/">ليستة عملاء كل أسبوع</a>
+      <a class="btn btn-ghost" href="https://mohamedkhalafalla.github.io/gwk-cold-email-copy/">دليل كتابة الـ&nbsp;cold email</a>
+    </div>
+  </div>
+  <div class="foot">Guide © 2026 Grow With Khalaf · Topview MCP by Topview · Not affiliated with Topview or Anthropic</div>
+</section>
+
+<script>
+// Table of contents, built from the h2s so the two copies never drift.
+const heads = [...document.querySelectorAll('article h2[id]')];
+document.querySelectorAll('[data-toc]').forEach(list => {
+  heads.forEach(h => {
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = '#' + h.id;
+    a.textContent = h.textContent.trim().replace(/^\d+/, m => 'خطوة ' + m + ': ');
+    li.appendChild(a);
+    list.appendChild(li);
+  });
+});
+const tocLinks = [...document.querySelectorAll('aside.toc a')];
+const spy = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    tocLinks.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id));
+  });
+}, {rootMargin: '-90px 0px -70% 0px'});
+heads.forEach(h => spy.observe(h));
+
+// Label each cell with its column header, for the stacked phone layout.
+document.querySelectorAll('.tbl table').forEach(t => {
+  const labels = [...t.querySelectorAll('thead th')].map(th => th.textContent);
+  t.querySelectorAll('tbody tr').forEach(tr => [...tr.children].forEach((td, i) => td.dataset.l = labels[i]));
+});
+
+// Install tabs.
+const tabs = [...document.querySelectorAll('[role="tab"]')];
+tabs.forEach(t => t.addEventListener('click', () => {
+  tabs.forEach(x => {
+    const on = x === t;
+    x.setAttribute('aria-selected', on);
+    document.getElementById(x.getAttribute('aria-controls')).hidden = !on;
+  });
+}));
+
+// Copy buttons copy the plain text of the block below them (rule tags left out).
+document.querySelectorAll('.copy').forEach(b => b.addEventListener('click', async () => {
+  let text = b.dataset.text;
+  if (!text) {
+    const box = b.closest('.prompt, .code, .email');
+    const src = box.querySelector('pre, .body').cloneNode(true);
+    src.querySelectorAll('.tag').forEach(t => t.remove());
+    text = src.matches('pre') ? src.innerText : [...src.querySelectorAll('p')].map(p => p.textContent.trim()).join('\n\n');
+  }
+  try {
+    await navigator.clipboard.writeText(text);
+  } catch {
+    const ta = Object.assign(document.createElement('textarea'), {value: text});
+    document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove();
+  }
+  b.textContent = 'اتنسخ ✓'; b.classList.add('done');
+  setTimeout(() => { b.textContent = 'انسخ'; b.classList.remove('done'); }, 1600);
+}));
+</script>
+</body>
+</html>
